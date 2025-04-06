@@ -81,3 +81,16 @@ body {
     transition: font-size 0.3s ease;
   }
   
+/* GIF styling */
+.gif {
+    max-width: 300px;
+    max-height: 300px;
+    margin-bottom: 20px;
+  }
+  
+  /* Text styling */
+  .gif-description {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }

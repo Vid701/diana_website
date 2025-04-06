@@ -19,34 +19,47 @@
 
   <script>
     
-    const button = document.getElementById("cycleToPage1");
-    const gif = document.getElementById("mainGif");
-    const text = document.getElementById("gifText");
-    const title = document.getElementById("pageTitle");
+    // Get the current iteration count from sessionStorage
+    let count = parseInt(sessionStorage.getItem('page1ButtonClicks')) || 0;
 
-    const STORAGE_KEY = "page1ButtonClicks";
-    let count = parseInt(sessionStorage.getItem(STORAGE_KEY)) || 0;
+    // Get references to the elements we need to modify
+    const button = document.getElementById('cycleToPage1');
+    const gif = document.getElementById('mainGif');
+    const text = document.getElementById('gifText');
+    const title = document.getElementById('pageTitle');
 
-    // Adjust the page visuals on the 5th click (before redirect)
-    if (count === 4) {
-      gif.src = "alternate-gif.gif"; // Replace with your alternate gif file
-      text.style.fontSize = "1.6rem";
-      title.style.fontSize = "2.5rem";
+    // Define the GIFs for different iterations
+    const gifs = [
+      'angry_gif_index.gif',    // GIF for iteration 1
+      'angry_gif_index_2.gif',  // GIF for iteration 2
+      'angry_gif_index_3.gif',  // GIF for iteration 3
+      'angry_gif_index_4.gif',  // GIF for iteration 4
+      'final_gif_index_5.gif',  // GIF for iteration 5
+    ];
+
+    // Check if it's the 4th iteration and modify page content
+    if (count === 3) {
+      gif.src = gifs[3];  // Change to the "alternate" GIF
+      text.style.fontSize = '1.8rem'; // Make text larger
+      title.style.fontSize = '2.5rem'; // Increase title font size
     }
 
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-
+    // Event listener for the button click
+    button.addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent the default anchor link behavior
       count++;
-      sessionStorage.setItem(STORAGE_KEY, count);
 
+      // Store the new count in sessionStorage
+      sessionStorage.setItem('page1ButtonClicks', count);
+
+      // Change the GIF for each iteration
       if (count < 5) {
-        window.location.href = "index.html"; // Refresh/cycle
+        gif.src = gifs[count]; // Update GIF for each iteration
+        window.location.href = 'index.html';  // Cycle back to the same page
       } else if (count === 5) {
-        window.location.href = "index.html"; // Show altered page
-      } else {
-        sessionStorage.removeItem(STORAGE_KEY); // Reset after redirect
-        window.location.href = "page1.html";
+        // Reset after 5 iterations and go to page1.html
+        sessionStorage.removeItem('page1ButtonClicks'); // Reset the cycle
+        window.location.href = 'page1.html'; // Go to page1.html after 5th iteration
       }
     });
 
