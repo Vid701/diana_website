@@ -3,16 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dark Mode Gif Template</title>
+  <title>I APOLOGIZE</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="container">
-    <img src="your-gif.gif" alt="Animated Gif" class="gif" />
+    <h1 class="page-title">PLEASE FORGIVE ME DIANA, I TOOK TOO LONG TO PLAY MINECRAFT WITH YOU :((</h1>
+    <img src="angry_gif_index.gif" alt="Animated Gif" class="gif" />
+    <p class="gif-description">Please pick the option that you feel best suits your response to my apology using the buttons below:</p>
     <div class="buttons">
-      <a href="page1.html" class="btn">Go to Page 1</a>
-      <a href="page2.html" class="btn">Go to Page 2</a>
+      <a href="page1.html" class="btn">No I do not forgive you >:( (HMPH)</a>
+      <a href="page2.html" class="btn">I forgive you, it happens. I love you baby <3</a>
     </div>
   </div>
+
+  <script>
+    
+    const button = document.getElementById("cycleToPage1");
+    const gif = document.getElementById("mainGif");
+    const text = document.getElementById("gifText");
+    const title = document.getElementById("pageTitle");
+
+    const STORAGE_KEY = "page1ButtonClicks";
+    let count = parseInt(sessionStorage.getItem(STORAGE_KEY)) || 0;
+
+    // Adjust the page visuals on the 5th click (before redirect)
+    if (count === 4) {
+      gif.src = "alternate-gif.gif"; // Replace with your alternate gif file
+      text.style.fontSize = "1.6rem";
+      title.style.fontSize = "2.5rem";
+    }
+
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      count++;
+      sessionStorage.setItem(STORAGE_KEY, count);
+
+      if (count < 5) {
+        window.location.href = "index.html"; // Refresh/cycle
+      } else if (count === 5) {
+        window.location.href = "index.html"; // Show altered page
+      } else {
+        sessionStorage.removeItem(STORAGE_KEY); // Reset after redirect
+        window.location.href = "page1.html";
+      }
+    });
+
+  </script>
+
 </body>
 </html>

@@ -47,3 +47,37 @@ body {
     transform: translateY(-2px);
   }
   
+
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+
+  .gif-description {
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+  }
+  
+
+/* You can customize these more if you want */
+.page-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    transition: font-size 0.3s ease;
+  }
+  
+  .gif-description {
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    transition: font-size 0.3s ease;
+  }
+  
