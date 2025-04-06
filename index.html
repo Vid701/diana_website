@@ -51,11 +51,6 @@
         title.textContent = textChanges; // Add in special text for the 5th iteration
       }
 
-    //   if (count === 5){
-    //     // Add in special text for the 5th iteration
-    //     text.textContent = textChanges
-    //   }
-
     }
 
     // Event listener for the button click
@@ -70,10 +65,10 @@
       if (count < 5) {
         gif.src = gifs[count]; // Update GIF for each iteration
         window.location.href = 'index.html';  // Cycle back to the same page
+        if (count === 4){
+            title.textContent = textChanges; // Add in special text for the 5th iteration
+        }
       } else if (count === 5) {
-
-        // title.textContent = textChanges; // Add in special text for the 5th iteration
-
         // Reset after 5 iterations and go to page1.html
         sessionStorage.removeItem('page1ButtonClicks'); // Reset the cycle
         window.location.href = 'page1.html'; // Go to page1.html after 5th iteration
