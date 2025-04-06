@@ -45,7 +45,7 @@
     if (count > 0) {
       gif.src = gifs[count];  // Change to the "alternate" GIF
     
-      if (count === 5){
+      if (count === 4){
         text.style.fontSize = '1.8rem'; // Make text larger
         title.style.fontSize = '2.5rem'; // Increase title font size
         title.textContent = textChanges; // Add in special text for the 5th iteration
@@ -67,10 +67,10 @@
       sessionStorage.setItem('page1ButtonClicks', count);
 
       // Change the GIF for each iteration
-      if (count < 5) {
+      if (count < 4) {
         gif.src = gifs[count]; // Update GIF for each iteration
         window.location.href = 'index.html';  // Cycle back to the same page
-      } else if (count === 5) {
+      } else if (count === 4) {
 
         title.textContent = textChanges; // Add in special text for the 5th iteration
 
