@@ -1,0 +1,49 @@
+/* Global dark mode background and text */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Centering container */
+  .container {
+    text-align: center;
+  }
+  
+  /* Styling the GIF */
+  .gif {
+    max-width: 90%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    margin-bottom: 24px;
+  }
+  
+  /* Button styles */
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .btn {
+    text-decoration: none;
+    background-color: #1f1f1f;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .btn:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+  }
+  
