@@ -44,9 +44,12 @@
     // Check if it's the 4th iteration and modify page content
     if (count > 0) {
       gif.src = gifs[count];  // Change to the "alternate" GIF
-      text.style.fontSize = '1.8rem'; // Make text larger
-      title.style.fontSize = '2.5rem'; // Increase title font size
     
+      if (count === 3){
+        text.style.fontSize = '1.8rem'; // Make text larger
+        title.style.fontSize = '2.5rem'; // Increase title font size
+      }
+
       if (count === 5){
         // Add in special text for the 5th iteration
         text.textContent = textChanges
