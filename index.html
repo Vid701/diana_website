@@ -42,15 +42,13 @@
     const textChanges = 'Are you sure :(( PLEASE FORGIVE ME BABY I DIDNT MEAN IT AT ALL'
 
     // Check if it's the 4th iteration and modify page content
-    if (count > 0) {
-      gif.src = gifs[count];  // Change to the "alternate" GIF
-    
-      if (count === 4){
-        text.style.fontSize = '1.8rem'; // Make text larger
-        title.style.fontSize = '2.5rem'; // Increase title font size
-        title.textContent = textChanges; // Add in special text for the 5th iteration
-      }
-
+    if (count === 4) {
+      gif.src = gifs[count];  // Change to the "final" GIF for the 5th iteration
+      text.style.fontSize = '1.8rem'; // Make text larger
+      title.style.fontSize = '2.5rem'; // Increase title font size
+      title.textContent = textChanges; // Change the title on the 5th iteration
+    } else if (count < 4) {
+      gif.src = gifs[count];  // Change the GIF for each iteration
     }
 
     // Event listener for the button click
@@ -61,13 +59,15 @@
       // Store the new count in sessionStorage
       sessionStorage.setItem('page1ButtonClicks', count);
 
-      // Change the GIF for each iteration
-      if (count < 5) {
+      // Change the GIF and title on the 5th iteration
+      if (count === 4) {
+        gif.src = gifs[count];  // Set the final GIF
+        title.textContent = textChanges; // Update the title text
+        title.style.fontSize = '2.5rem'; // Make the title bigger
+        text.style.fontSize = '1.8rem'; // Make the text larger
+      } else if (count < 4) {
         gif.src = gifs[count]; // Update GIF for each iteration
         window.location.href = 'index.html';  // Cycle back to the same page
-        if (count === 4){
-            title.textContent = textChanges; // Add in special text for the 5th iteration
-        }
       } else if (count === 5) {
         // Reset after 5 iterations and go to page1.html
         sessionStorage.removeItem('page1ButtonClicks'); // Reset the cycle
